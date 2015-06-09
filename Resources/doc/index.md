@@ -261,20 +261,20 @@ add template
 #### template blocks priority
 
 * contact block name by priority
-** `{prefix}_contact`
-** `{slug}_contact`
-** `fdevs_contact`
+    * `{prefix}_contact`
+    * `{slug}_contact`
+    * `fdevs_contact`
 
 * address block name by priority
-** `{prefix}_{locale}_address`
-** `{prefix}_address`
-** `{locale}_address`
-** `fdevs_{locale}_address`
-** `fdevs_address`
+    * `{prefix}_{locale}_address`
+    * `{prefix}_address`
+    * `{locale}_address`
+    * `fdevs_{locale}_address`
+    * `fdevs_address`
 
 * connect block name by priority
-** `{prefix}_{type}_connect`
-** `{type}_connect`
-** `{contact_prefix|slug}_{type}_connect` - if use as contact  
-** `{contact_prefix|slug}_connect` - if use as contact  
-** `fdevs_connect`
+    * `{prefix}_{type}_connect`
+    * `{type}_connect`
+    * `{contact_prefix|slug}_{type}_connect` - if use as contact  
+    * `{contact_prefix|slug}_connect` - if use as contact  
+    * `fdevs_connect`
