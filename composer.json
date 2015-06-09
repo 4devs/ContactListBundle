@@ -1,0 +1,42 @@
+{
+    "name": "fdevs/contact-list-bundle",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "description": "Bundle for Contact List",
+    "homepage": "https://github.com/4devs/ContactListBundle",
+    "keywords": [
+        "symfony",
+        "contact"
+    ],
+    "authors": [
+        {
+            "name": "4devs company",
+            "homepage": "http://4devs.org"
+        },
+        {
+            "name": "Samusev Andrey",
+            "email": "andrey_simfi@list.ru",
+            "homepage": "http://andrey.4devs.io/"
+        },
+        {
+            "name": "4devs Community",
+            "homepage": "https://github.com/4devs/ContactListBundle/contributors"
+        }
+    ],
+    "require-dev": {},
+    "require": {
+        "php": ">=5.4",
+        "symfony/symfony": "~2.7",
+        "twig/extensions": "~1.0",
+        "fdevs/geo-bundle": "~2.0",
+        "fdevs/contact-list": "~1.0",
+        "fdevs/locale-bundle": "~2.0"
+    },
+    "suggest": {
+        "doctrine/mongodb-odm-bundle": "to use with mongodb",
+        "sonata-project/admin-bundle": "for admin bundle"
+    },
+    "autoload": {
+        "psr-4": {"FDevs\\ContactListBundle\\": ""}
+    }
+}

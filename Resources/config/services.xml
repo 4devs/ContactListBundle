@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="f_devs_contact_list.factory.class">FDevs\ContactList\ContactFactory</parameter>
+        <parameter key="f_devs_contact_list.contact_provider.chain.class">FDevs\ContactList\Provider\ChainProvider</parameter>
+        <parameter key="f_devs_contact_list.contact_provider.doctrine.class">FDevs\ContactList\Provider\DoctrineProvider</parameter>
+        <parameter key="f_devs_contact_list.contact_provider.builder_alias.class">FDevs\ContactListBundle\Provider\BuilderAliasProvider</parameter>
+        <parameter key="f_devs_contact_list.helper.class">FDevs\ContactList\Twig\Helper</parameter>
+        <parameter key="f_devs_contact_list.renderer.twig.class">FDevs\ContactList\Renderer\TwigRenderer</parameter>
+        <parameter key="f_devs_contact_list.twig.extension.class">FDevs\ContactList\Twig\ContactExtension</parameter>
+   </parameters>
+
+    <services>
+
+        <service id="f_devs_contact_list.factory" class="%f_devs_contact_list.factory.class%">
+            <call method="setContactClass"><argument>%f_devs_contact_list.model_contact.class%</argument></call>
+            <call method="setConnectClass"><argument>%f_devs_contact_list.model_connect.class%</argument></call>
+            <call method="setAddressClass"><argument>%f_devs_contact_list.model_address.class%</argument></call>
+        </service>
+
+        <service id="f_devs_contact_list.contact_provider.builder_alias" class="%f_devs_contact_list.contact_provider.builder_alias.class%" public="false">
+            <argument type="service" id="kernel" />
+            <argument type="service" id="service_container" />
+            <argument type="service" id="f_devs_contact_list.factory" />
+        </service>
+
+        <service id="f_devs_contact_list.contact_provider.chain" class="%f_devs_contact_list.contact_provider.chain.class%" public="false">
+            <argument type="collection" />
+        </service>
+
+        <service id="f_devs_contact_list.contact_provider.doctrine" class="%f_devs_contact_list.contact_provider.doctrine.class%" public="false">
+            <argument type="string" on-invalid="null">%f_devs_contact_list.model_contact.class%</argument>
+            <argument type="service" id="f_devs_contact_list.model_manager" on-invalid="null"/>
+        </service>
+
+        <service id="f_devs_contact_list.helper" class="%f_devs_contact_list.helper.class%" public="false">
+            <argument type="service" id="f_devs_contact_list.renderer.twig" />
+            <argument type="service" id="f_devs_contact_list.contact_provider" />
+        </service>
+
+        <service id="f_devs_contact_list.renderer.twig" class="%f_devs_contact_list.renderer.twig.class%">
+            <argument type="service" id="twig" />
+            <argument type="service" id="f_devs_locale.translator" />
+            <argument>%f_devs_contact_list.twig.tpl%</argument>
+        </service>
+
+        <service id="f_devs_contact_list.twig.extension" class="%f_devs_contact_list.twig.extension.class%" public="false">
+            <tag name="twig.extension" />
+            <argument type="service" id="f_devs_contact_list.helper" />
+        </service>
+    </services>
+
+</container>

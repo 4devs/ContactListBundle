@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="f_devs_contact_list.form.type.address.class">FDevs\ContactList\Form\Type\AddressType</parameter>
+        <parameter key="f_devs_contact_list.form.type.connect.class">FDevs\ContactList\Form\Type\ConnectType</parameter>
+        <parameter key="f_devs_contact_list.form.type.contact.class">FDevs\ContactList\Form\Type\ContactType</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="f_devs_contact_list.form.type.contact" class="%f_devs_contact_list.form.type.contact.class%">
+            <tag name="form.type" alias="contact"/>
+        </service>
+
+        <service id="f_devs_contact_list.form.type.connect" class="%f_devs_contact_list.form.type.connect.class%">
+            <tag name="form.type" alias="connect"/>
+        </service>
+
+        <service id="f_devs_contact_list.form.type.address" class="%f_devs_contact_list.form.type.address.class%">
+            <tag name="form.type" alias="address"/>
+        </service>
+
+    </services>
+
+</container>

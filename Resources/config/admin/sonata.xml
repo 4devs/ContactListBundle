@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="f_devs_contact_list.admin_contact.class">FDevs\ContactListBundle\Sonata\Admin\ContactAdmin</parameter>
+        <parameter key="f_devs_contact_list.admin.groupname">ContactList</parameter>
+        <parameter key="f_devs_contact_list.admin.label_catalogue">FDevsContactListBundle</parameter>
+        <parameter key="f_devs_contact_list.admin.translation_domain">FDevsContactListBundle</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="f_devs_contact_list.admin.contact" class="%f_devs_contact_list.admin_contact.class%">
+            <tag name="sonata.admin" label_catalogue="%f_devs_contact_list.admin.label_catalogue%"
+                 manager_type="doctrine_mongodb" group="%f_devs_contact_list.admin.groupname%" label="label.contacts"/>
+            <argument/>
+            <argument>%f_devs_contact_list.model_contact.class%</argument>
+            <argument/>
+        </service>
+
+    </services>
+
+</container>
