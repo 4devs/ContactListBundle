@@ -2,11 +2,11 @@
 
 namespace FDevs\ContactListBundle\Sonata\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class ContactAdmin extends Admin
+class ContactAdmin extends AbstractAdmin
 {
     /**
      * {@inheritDoc}
