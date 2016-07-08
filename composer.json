@@ -23,10 +23,13 @@
             "homepage": "https://github.com/4devs/ContactListBundle/contributors"
         }
     ],
-    "require-dev": {},
+    "require-dev": {
+        "doctrine/mongodb-odm-bundle": "~3.2",
+        "sonata-project/admin-bundle": "~3.4"
+    },
     "require": {
         "php": ">=5.4",
-        "symfony/symfony": "~2.7",
+        "symfony/symfony": "~2.8|~3.0",
         "twig/extensions": "~1.0",
         "fdevs/geo-bundle": "~2.0",
         "fdevs/contact-list": "~1.0",
@@ -37,6 +40,8 @@
         "sonata-project/admin-bundle": "for admin bundle"
     },
     "autoload": {
-        "psr-4": {"FDevs\\ContactListBundle\\": ""}
+        "psr-4": {
+            "FDevs\\ContactListBundle\\": ""
+        }
     }
 }
