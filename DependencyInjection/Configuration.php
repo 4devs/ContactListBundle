@@ -7,7 +7,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\Definition\ScalarNode;
 
 /**
- * This is the class that validates and merges configuration from your app/config files
+ * This is the class that validates and merges configuration from your app/config files.
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html#cookbook-bundles-extension-config-class}
  */
@@ -39,33 +39,33 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
-     * add admin config service
+     * add admin config service.
      *
      * @return \Symfony\Component\Config\Definition\Builder\NodeDefinition
      */
     private function adminService()
     {
-        $supportedAdminService = ['sonata','none'];
+        $supportedAdminService = ['sonata', 'none'];
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('admin_service', 'scalar');
 
         $rootNode
             ->validate()
             ->ifNotInArray($supportedAdminService)
-            ->thenInvalid('The admin service %s is not supported. Please choose one of ' . json_encode($supportedAdminService))
+            ->thenInvalid('The admin service %s is not supported. Please choose one of '.json_encode($supportedAdminService))
             ->end();
 
         return $rootNode;
     }
 
     /**
-     * add db config
+     * add db config.
      *
      * @return \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition
      */
     private function dbDriver()
     {
-        $supportedDrivers = ['mongodb','none'];
+        $supportedDrivers = ['mongodb', 'none'];
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('db');
 

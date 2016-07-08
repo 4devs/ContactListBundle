@@ -2,7 +2,6 @@
 
 namespace FDevs\ContactListBundle\DependencyInjection\Compiler;
 
-
 use Symfony\Component\Config\Resource\DirectoryResource;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -38,7 +37,7 @@ class AddTranslatorPass implements CompilerPassInterface
                 $files[$locale] = [];
             }
 
-            $files[$locale][] = (string)$file;
+            $files[$locale][] = (string) $file;
         }
 
         $options = array_merge_recursive(

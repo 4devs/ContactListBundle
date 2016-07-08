@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 class FDevsContactListBundle extends Bundle
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function build(ContainerBuilder $container)
     {
@@ -31,7 +31,7 @@ class FDevsContactListBundle extends Bundle
     {
         $refl = new \ReflectionClass('FDevs\ContactList\ContactFactory');
 
-        $mappings = [realpath(dirname($refl->getFileName()) . '/Resources/config/doctrine/model') => 'FDevs\ContactList\Model'];
+        $mappings = [realpath(dirname($refl->getFileName()).'/Resources/config/doctrine/model') => 'FDevs\ContactList\Model'];
 
         if (class_exists('Doctrine\Bundle\MongoDBBundle\DependencyInjection\Compiler\DoctrineMongoDBMappingsPass')) {
             $container->addCompilerPass(
@@ -42,6 +42,5 @@ class FDevsContactListBundle extends Bundle
                 )
             );
         }
-
     }
 }
