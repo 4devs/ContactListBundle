@@ -24,7 +24,7 @@
         }
     ],
     "require-dev": {
-        "doctrine/mongodb-odm-bundle": "~3.2",
+        "doctrine/mongodb-odm-bundle": "~3.0|~3.2",
         "sonata-project/admin-bundle": "~3.4"
     },
     "require": {
