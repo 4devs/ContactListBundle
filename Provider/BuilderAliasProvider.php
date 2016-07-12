@@ -2,7 +2,6 @@
 
 namespace FDevs\ContactListBundle\Provider;
 
-
 use FDevs\ContactList\ContactInterface;
 use FDevs\ContactList\FactoryInterface;
 use FDevs\ContactList\Provider\ContactProviderInterface;
@@ -28,7 +27,7 @@ class BuilderAliasProvider implements ContactProviderInterface
     private $folder = 'Contact';
 
     /**
-     * init
+     * init.
      *
      * @param KernelInterface    $kernel
      * @param ContainerInterface $container
@@ -73,12 +72,13 @@ class BuilderAliasProvider implements ContactProviderInterface
     }
 
     /**
-     * get Builder
+     * get Builder.
      *
      * @param string $bundleName
      * @param string $className
      *
      * @return mixed
+     *
      * @throws \InvalidArgumentException
      */
     protected function getBuilder($bundleName, $className)
@@ -91,7 +91,7 @@ class BuilderAliasProvider implements ContactProviderInterface
             $bundles = array();
 
             foreach ($this->kernel->getBundle($bundleName, false) as $bundle) {
-                $try = $bundle->getNamespace() . '\\' . $this->folder . '\\' . $className;
+                $try = $bundle->getNamespace().'\\'.$this->folder.'\\'.$className;
                 if (class_exists($try)) {
                     $class = $try;
                     break;
@@ -119,5 +119,4 @@ class BuilderAliasProvider implements ContactProviderInterface
 
         return $this->builders[$name];
     }
-
 }

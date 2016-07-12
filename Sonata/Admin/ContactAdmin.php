@@ -2,29 +2,29 @@
 
 namespace FDevs\ContactListBundle\Sonata\Admin;
 
-use Sonata\AdminBundle\Admin\Admin;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class ContactAdmin extends Admin
+class ContactAdmin extends AbstractAdmin
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected $formOptions = ['cascade_validation' => true];
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected $baseRoutePattern = 'contact';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected $baseRouteName = 'contact';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     protected $translationDomain = 'FDevsContactListBundle';
 
@@ -43,7 +43,7 @@ class ContactAdmin extends Admin
                     'allow_delete' => true,
                     'allow_add' => true,
                     'required' => false,
-                    'options' => ['label' => false]
+                    'options' => ['label' => false],
                 ]
             )
         ;
@@ -62,5 +62,4 @@ class ContactAdmin extends Admin
             ->add('_action', 'actions', ['actions' => ['edit' => [], 'delete' => []]])
         ;
     }
-
 }

@@ -5,7 +5,8 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
-        <service id="f_devs_contact_list.model_manager" factory-service="doctrine_mongodb" factory-method="getManager" class="Doctrine\ODM\MongoDB\DocumentManager" public="false">
+        <service id="f_devs_contact_list.model_manager" class="Doctrine\ODM\MongoDB\DocumentManager" public="false">
+            <factory service="doctrine_mongodb" method="getManager"/>
             <argument>%f_devs_contact_list.model_manager_name%</argument>
         </service>
     </services>

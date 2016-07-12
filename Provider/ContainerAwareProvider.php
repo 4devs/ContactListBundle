@@ -24,7 +24,7 @@ class ContainerAwareProvider implements ContactProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function get($name, array $options = [])
     {
@@ -39,7 +39,7 @@ class ContainerAwareProvider implements ContactProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function has($name, array $options = [])
     {
