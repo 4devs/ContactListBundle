@@ -36,7 +36,6 @@ class FDevsContactListExtension extends Extension
         $container->setParameter($this->getAlias().'.model_address.class', $config['model_address']);
 
         $loader->load('services.xml');
-        $loader->load('form.xml');
 
         foreach ($config['providers'] as $provider) {
             $container->getDefinition($provider)->addTag('f_devs_contact_list.provider');

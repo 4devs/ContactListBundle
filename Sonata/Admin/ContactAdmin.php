@@ -2,9 +2,12 @@
 
 namespace FDevs\ContactListBundle\Sonata\Admin;
 
+use FDevs\ContactList\Form\Type\ConnectType;
+use FDevs\ContactList\Form\Type\ContactType;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 
 class ContactAdmin extends AbstractAdmin
 {
@@ -34,12 +37,12 @@ class ContactAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('contact', 'contact', ['inherit_data' => true, 'label' => false])
+            ->add('contact', ContactType::class, ['inherit_data' => true, 'label' => false])
             ->add(
                 'connectList',
-                'collection',
+                CollectionType::class,
                 [
-                    'type' => 'connect',
+                    'type' => ConnectType::class,
                     'allow_delete' => true,
                     'allow_add' => true,
                     'required' => false,

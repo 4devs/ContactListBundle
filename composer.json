@@ -32,7 +32,7 @@
         "symfony/symfony": "~2.8|~3.0",
         "twig/extensions": "~1.0",
         "fdevs/geo-bundle": "~2.0",
-        "fdevs/contact-list": "~1.0",
+        "fdevs/contact-list": "~1.1",
         "fdevs/locale-bundle": "~2.0"
     },
     "suggest": {
